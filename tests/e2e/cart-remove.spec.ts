@@ -12,7 +12,7 @@ test("User can remove item from cart", async ({ page }) => {
   await page.goto(testdata.url);
 
   // Step 1: Login
-  await loginPage.login("standard_user", "secret_sauce");
+  await loginPage.login(testdata.username, testdata.password);
 
   // Step 2: Add item
   await inventoryPage.addItem();

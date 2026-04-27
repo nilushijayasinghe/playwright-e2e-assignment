@@ -1,45 +1,19 @@
-# Surge Automation Framework
+# Playwright E2E Automation Framework
 
-## Table of Contents
+## 📌 Introduction
 
-1. [Introduction](#introduction)
-2. [Project Structure](#project-structure)
-3. [Setup and Installation](#setup-and-installation)
-4. [Running Tests](#running-tests)
-5. [Test Structure](#test-structure)
-6. [Helpers](#helpers)
-7. [Utils](#utils)
-8. [Pages](#pages)
-9. [Data Files](#data-files)
-10. [Configuration](#configuration)
-11. [Makefile](#makefile)
-12. [Scripts](#scripts)
+This project is an End-to-End (E2E) test automation framework built using Playwright.  
+It validates core user flows of the SauceDemo application.
 
-## Introduction
+---
 
-The Surge Automation Framework is built using Playwright for end-to-end testing. It includes tests for user registration, group creation, and validation of various functionalities across different user hubs (Admin, Expert, and User).
-
-## Project Structure
-
-```
-.gitignore
-data/
-	# Contains JSON files for credentials and payloads
-helpers/
-	# Contains helper classes and scripts
-Makefile
-package.json
-pages/
-	# Contains page object classes for different hubs
-playwright-report/
-	# Contains test reports
+## 📁 Project Structure
+data/ # Test data (JSON)
+pages/ # Page Object Model (POM)
+tests/ # Test specifications
+utils/ # Logger and utilities
 playwright.config.ts
-pnpm-lock.yaml
-test-results/
-	# Contains test result files
-tests/
-	# Contains test specification files
-```
+
 
 ## Setup and Installation
 
@@ -54,19 +28,13 @@ tests/
    ```sh
    pnpm install
    ```
-
-## Running Tests
+3. **Environment Setup**
+⚠️ Note: The .env file is not included in this repository for security reasons. Please request it from the author if needed.
 
 To run the tests, use the following command:
 
 ```sh
-pnpm test
-```
-
-To generate and upload the test report, use the following command:
-
-```sh
-make report
+npx playwright test
 ```
 
 ## Test Structure

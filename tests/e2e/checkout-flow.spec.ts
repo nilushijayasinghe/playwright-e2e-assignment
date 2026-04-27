@@ -13,25 +13,23 @@ test.describe("E2E Checkout Flow", () => {
   let cartPage: CartPage;
   let checkoutPage: CheckoutPage;
 
-test.beforeEach(async ({ page }) => {
-  loginPage = new LoginPage(page);
-  inventoryPage = new InventoryPage(page);
-  cartPage = new CartPage(page);
-  checkoutPage = new CheckoutPage(page);
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    inventoryPage = new InventoryPage(page);
+    cartPage = new CartPage(page);
+    checkoutPage = new CheckoutPage(page);
 
-  await page.goto(testdata.url);
-  await page.waitForLoadState('domcontentloaded');
+    await page.goto(testdata.url);
+    await page.waitForLoadState("domcontentloaded");
 
-  logger.info("Navigated to SauceDemo");
-});
+    await loginPage.login(testdata.username, testdata.password);
+
+    logger.info("Navigated to SauceDemo");
+  });
 
   test("User completes checkout successfully", async ({ page }) => {
 
     logger.info("Test started: Checkout Flow");
-
-    await test.step("Login", async () => {
-      await loginPage.login("standard_user", "secret_sauce");
-    });
 
     await test.step("Add item to cart", async () => {
       await inventoryPage.addItem();

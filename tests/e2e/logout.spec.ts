@@ -10,7 +10,7 @@ test("User can logout successfully", async ({ page }) => {
   await page.goto(testdata.url);
 
   // Step 1: Login
-  await loginPage.login("standard_user", "secret_sauce");
+  await loginPage.login(testdata.username, testdata.password);
 
   // Step 2: Open menu
   await inventoryPage.openMenu();

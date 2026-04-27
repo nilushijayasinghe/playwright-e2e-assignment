@@ -5,9 +5,6 @@ import path from "path";
 //read from ".env" file
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
-export const runId = process.env.RUN_ID;
-// export const runId = new Date().toISOString();
-
 export default defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
@@ -19,13 +16,11 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 5 : 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
+reporter: [
     [
       "html",
       {
-        attachmentsBaseURL: `https://slch-qa-automation-results.s3.eu-north-1.amazonaws.com/${runId}/data/`,
-        outputFolder: `./playwright-report/${runId}/`,
-        open: "never",
+        open: "on-failure",
       },
     ],
   ],

@@ -22,7 +22,10 @@ test.describe("Product View Test", () => {
   test("User can view product details", async ({ page }) => {
 
     await test.step("Login", async () => {
-      await loginPage.login("standard_user", "secret_sauce");
+      await loginPage.login(
+        testdata.username,
+        testdata.password
+      );
     });
 
     await test.step("Open product", async () => {
